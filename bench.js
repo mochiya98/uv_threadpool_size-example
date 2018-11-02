@@ -5,8 +5,9 @@ const fs=require("fs");
 const tbuf=fs.readFileSync("test.bin");
 
 const start=Date.now();
-Promise.all([
-	gzip(tbuf),gzip(tbuf),gzip(tbuf),gzip(tbuf),gzip(tbuf),
-	gzip(tbuf),gzip(tbuf),gzip(tbuf),gzip(tbuf),gzip(tbuf),
-	gzip(tbuf),gzip(tbuf),gzip(tbuf),gzip(tbuf),gzip(tbuf),
-]).then(()=>console.log(`${Date.now()-start}ms, ${process.argv[2]}thread`));
+const queue=[];
+for(var i=0;i<15;i++)queue.push(gzip(tbuf));
+
+Promise.all(queue).then(()=>
+	console.log(`${Date.now()-start}ms, ${process.env.UV_THREADPOOL_SIZE}thread`)
+);

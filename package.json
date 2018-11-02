@@ -1,14 +1,14 @@
 {
   "name": "uv_threadpool_size-example",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "bench.js",
   "scripts": {
     "start": "npm run c1 && npm run c4 && npm run c8",
-    "c1": "UV_THREADPOOL_SIZE=1 node bench.js 1",
-    "c4": "UV_THREADPOOL_SIZE=4 node bench.js 4",
-    "c8": "UV_THREADPOOL_SIZE=8 node bench.js 8"
+    "c1": "UV_THREADPOOL_SIZE=1 node bench.js",
+    "c4": "UV_THREADPOOL_SIZE=4 node bench.js",
+    "c8": "UV_THREADPOOL_SIZE=8 node bench.js"
   },
-  "author": "",
+  "author": "Yukimasa Funaoka <yukimasafunaoka@gmail.com>",
   "license": "MIT"
 }
